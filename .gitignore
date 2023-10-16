@@ -1,9 +1,8 @@
 *.pbf
 node_modules/
-/.vs
-appsettings.Deveelopment.json
-**/wwwroot/lib/
-**/wwwroot/dist/
+/.vs/
+/appsettings.Deveelopment.json
+**/wwwroot/
 
 *.obj
 *.exe
