@@ -1,7 +1,7 @@
 *.pbf
 node_modules/
-/.vs/
-/appsettings.Deveelopment.json
+**/.vs/
+**/appsettings.Development.json
 **/wwwroot/
 
 *.obj
