@@ -2,8 +2,8 @@
 node_modules/
 /.vs
 appsettings.Deveelopment.json
-wwwroot/lib 
-wwwroot/dist
+*/wwwroot/lib 
+*/wwwroot/dist
 
 *.obj
 *.exe
