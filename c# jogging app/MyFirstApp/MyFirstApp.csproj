@@ -12,12 +12,20 @@
 
   <ItemGroup>
     <PackageReference Include="BruTile" Version="5.0.5" />
+    <PackageReference Include="FluentNHibernate" Version="3.3.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.13">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="5.2.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="OsmDataKit" Version="3.1.1" />
     <PackageReference Include="OsmSharp" Version="6.2.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     <PackageReference Include="Syncfusion.EJ.AspNet.Core" Version="20.4.0.44" />
     <PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="23.1.40" />
     <PackageReference Include="Syncfusion.EJ2.JavaScript" Version="23.1.40" />
@@ -26,6 +34,10 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="Views\Home\script.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

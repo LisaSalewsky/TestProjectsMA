@@ -1,4 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
+using MyFirstApp.data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +9,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton(new MbTilesReader("c:/temp/map.mbtiles"));
 builder.Services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+builder.Services.AddDbContext<GraphDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("GraphDbConnectionString")));
+
+
+// Add Swagger services
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Your API", Version = "v1" });
+});
+
 
 var app = builder.Build();
 
@@ -24,6 +37,19 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+
+
+// Enable middleware to serve generated Swagger as a JSON endpoint.
+app.UseSwagger();
+
+// Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+// specifying the Swagger JSON endpoint.
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Your API V1");
+    //c.RoutePrefix = "";
+});
 
 app.MapControllerRoute(
     name: "default",
